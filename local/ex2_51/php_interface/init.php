@@ -1,33 +1,48 @@
 <?php
- CEventLog::Add([
-"SEVERITY" => "INFO",
-"AUDIT_TYPE_ID" => "INIT_CHECK",
-"MODULE_ID" => "main",
-"ITEM_ID" => "INIT",
-"DESCRIPTION" => "alright ehh",
-]);
-
 AddEventHandler("main", "OnBeforeEventSend", "before_send_mail");
+AddEventHandler("main", "OnbeforeEventSend", "debug_before");
+AddEventHandler("main", "OnAfterEventSend", "debug_after");
 
-function before_send_mail(&$event, &$site_id, &$array_fields){
+function debug_before(&$eventName, &$lid, &$arFields)
+{
+	CEventLog::Add([
+"SEVERITY" => "INFO",
+"AUDIT_TYPE_ID" =>"debug_before",
+"MODULE_ID" => "main",
+"ITEM_ID" => $eventName,
+"DESCRIPTION" => "before_send" . $eventName,
+]);
+}
+
+function debug_after($eventName, $lid, $arFields){
+
+	CEventLog::Add([
+"SEVERITY" => "INFO",
+"AUDIT_TYPE_ID" => "DEBUG_AFTER_SEND",
+"MODULE_ID" => "main",
+"ITEM_ID" => $eventName,
+"DESCRIPTION" => "after_send" . $eventName,
+]);
+}
+function before_send_mail(&$event, &$lid, &$arFields){
 
 	if ($event !== "FEEDBACK_FORM")
 		return;
 
 	global $USER;
-	$name_from_form = trim ($array_fields["NAME"]);
+	$name_from_form = trim ($arFields["NAME"]);
 
 	if ($USER ->IsAuthorized()) {
 
 		$id = $USER ->GetID();
 		$login = $USER ->GetLogin();
-		$name = $USER ->GetFullName() ?: login;
+		$name = $USER ->GetFullName() ?: $login;
 		$author = "(RUSSIA!!!)user is authorized: {$id} ({$login}) {$name}, data from form: {$name_from_form}";
 	}else { 
 		$author = "user DONT authorize, data from form: {$name_from_form}";
 	}
 
-	$array_fields["AUTHOR"]=$author;
+	$arFields["AUTHOR"]=$author;
 
 	CEventLog::Add([
 	"SEVERITY" => "INFO",

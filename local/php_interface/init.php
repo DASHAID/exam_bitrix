@@ -1,9 +1,11 @@
 <?php
-AddEventHandler("main", "OnBeforeEventSend", "before_send_mail");
-AddEventHandler("main", "OnbeforeEventSend", "debug_before");
-AddEventHandler("main", "OnAfterEventSend", "debug_after");
+use Bitrix\Main\Loader;
+use Bitrix\Main\Context;
+use Bitrix\Iblock\ElementTable;
 
-function debug_before(&$eventName, &$lid, &$arFields)
+AddEventHandler("main", "OnEpilog", "set_meta_tags");
+
+function set_meta_tags()
 {
 	CEventLog::Add([
 "SEVERITY" => "INFO",
@@ -15,41 +17,32 @@ function debug_before(&$eventName, &$lid, &$arFields)
 }
 
 function debug_after($eventName, $lid, $arFields){
+ if(!Loader::includeModule("iblock")){
+	return;
+  }
+global $APPLICATION;
 
-	CEventLog::Add([
-"SEVERITY" => "INFO",
-"AUDIT_TYPE_ID" => "DEBUG_AFTER_SEND",
-"MODULE_ID" => "main",
-"ITEM_ID" => $eventName,
-"DESCRIPTION" => "after_send" . $eventName,
-]);
+$request = Context::getCurrent() ->getRequest();
+$currentPage = $request ->getRequestedPage();
+$currentUri=$request ->getRequestUri();
+
+$url=strtok($currentUri, '?');
+
+$res =\CIBlockElement::GetList(
+[],
+["IBLOCK_TYPE" => "products",
+"IBLOCK_CODE" => "meta_tags",
+"ACTIVE" => "Y",
+"NAME" => $url,
+],
+false,
+false,
+["ID", "IBLOCK_ID", "PROPERTY_title", "PROPERTY_description"]
+);
+if ($item = $res->GetNext()){
+ if(!empty($item["PROPERTY_title_VALUE"])){
+$APPLICATION ->SetPageProperty("title", $item["PROPERTY_description_VALUE"]);
+
 }
-function before_send_mail(&$event, &$lid, &$arFields){
-
-	if ($event !== "FEEDBACK_FORM")
-		return;
-
-	global $USER;
-	$name_from_form = trim ($arFields["NAME"]);
-
-	if ($USER ->IsAuthorized()) {
-
-		$id = $USER ->GetID();
-		$login = $USER ->GetLogin();
-		$name = $USER ->GetFullName() ?: $login;
-		$author = "(RUSSIA!!!)user is authorized: {$id} ({$login}) {$name}, data from form: {$name_from_form}";
-	}else { 
-		$author = "user DONT authorize, data from form: {$name_from_form}";
-	}
-
-	$arFields["AUTHOR"]=$author;
-
-	CEventLog::Add([
-	"SEVERITY" => "INFO",
-	"AUDIT_TYPE_ID" => "FEEDBACK_AUTHOR_REPLACED",
-	"MODULE_ID" => "main",
-	"ITEM_ID" => $event,
-	"DESCRIPTION" => "Replaced data in send email - {$author}",
-	]);
-
+}
 }
