@@ -1,27 +1,29 @@
 <?php
-use Bitrix\Main\UserTable;
-use CEventLog;
+ CEventLog::Add([
+"SEVERITY" => "INFO",
+"AUDIT_TYPE_ID" => "INIT_CHECK",
+"MODULE_ID" => "main",
+"ITEM_ID" => "INIT",
+"DESCRIPTION" => "alright ehh",
+]);
 
-AddEventHandler("main", "OnBeforeEventAdd", "before_send_mail");
+AddEventHandler("main", "OnBeforeEventSend", "before_send_mail");
 
 function before_send_mail(&$event, &$site_id, &$array_fields){
 
-	if ($event !== "FEEDBACK_FORM"){
+	if ($event !== "FEEDBACK_FORM")
 		return;
-	}
 
 	global $USER;
-	$name_from_form = trim ($array_fields["AUTHOR_NAME"] ?? $array_fields["NAME"] ?? "");
+	$name_from_form = trim ($array_fields["NAME"]);
 
 	if ($USER ->IsAuthorized()) {
 
-	$id = $USER ->GetID();
-	$login = $USER ->GetLogin();
-	$fio = trim($USER ->GetFormattedName(false));
-	$author = "user is authorized: {$id} ({$login}) {$fio}, data from form: {$name_from_form}";
-
-	}
-	else { 
+		$id = $USER ->GetID();
+		$login = $USER ->GetLogin();
+		$name = $USER ->GetFullName() ?: login;
+		$author = "(RUSSIA!!!)user is authorized: {$id} ({$login}) {$name}, data from form: {$name_from_form}";
+	}else { 
 		$author = "user DONT authorize, data from form: {$name_from_form}";
 	}
 
@@ -34,5 +36,5 @@ function before_send_mail(&$event, &$site_id, &$array_fields){
 	"ITEM_ID" => $event,
 	"DESCRIPTION" => "Replaced data in send email - {$author}",
 	]);
-	}
+
 }
