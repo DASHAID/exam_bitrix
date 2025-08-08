@@ -35,4 +35,17 @@ $arFields["AUTHOR"]=$authorInfo;
 	"ITEM_ID"=> "feedback_form",
 	"DESCRIPTION" => "«Замена данных в отсылаемом письме - [{$authorInfo}]"
 ]);
+	
+//письмо
+	$logDir = $_SERVER["DOCUMENT_ROOT"] . "/bitrix/mail/";
+	if (!file_exists($logDir)) {
+		mkdir($logDir, 0775, true);
+	}
+
+	$filename = $logDir . "feedback_" . date("Ymd_His") . "_" . rand(1000,9999) . ".txt";
+	$content = "To: " . $arFields["EMAIL_TO"] . "\n";
+	$content .= "Subject: " . $arTemplate["SUBJECT"] . "\n";
+	$content .= "Message:\n" . $arTemplate["MESSAGE"] . "\n";
+
+	file_put_contents($filename, $content);
 }
