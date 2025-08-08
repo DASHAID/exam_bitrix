@@ -7,11 +7,10 @@ $APPLICATION->SetTitle("Feedback ex2_51");
 $APPLICATION->IncludeComponent("bitrix:main.feedback",
 				"",
 [
-	"EMAIL_TO" => "dd.chernova@yandex.ru",
+	"EMAIL_TO" => "admin@example.com",
 	"EVENT_MESSAGE_ID" => ["FEEDBACK_FORM"],
 	"OK_TEXT" => "Thank you, message send",
 	"REQUIRED_FIELDS" => ["NAME", "EMAIL", "MESSAGE"],
-	"EVENT_MESSAGE_ID" => [7],
 	"USE_CAPTCHA" => "Y"
 ]
 );
