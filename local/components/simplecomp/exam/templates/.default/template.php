@@ -10,7 +10,7 @@
 				<ul>
 				<?php foreach ($classifier["ITEMS"] as $item):?>
 					<li>
-						<a href="<?=htmlspecialcharsbx($item[DETAIL_PAGE_URL"])?>"><?=htmlspecialcharsbx($item["NAME"])?></a>
+						<a href="<?=htmlspecialcharsbx($item["DETAIL_PAGE_URL"])?>"><?=htmlspecialcharsbx($item["NAME"])?></a>
 						CENA: <?=htmlspecialcharsbx($item["PRICE"])?>,
 						MATERIAL: <?=htmlspecialcharsbx($item["MATERIAL"])?>,
 						ARTICUL: <?=htmlspecialcharsbx($item["ARTIKUL"])?>

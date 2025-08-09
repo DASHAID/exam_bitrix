@@ -2,7 +2,7 @@
 
 if(!defined("B_PROLOG_INCLUDED")|| B_PROLOG_INCLUDED !==true) die();
 
-$arComponentParameters =[]
+$arComponentParameters =[
 	"GROUPS" =>[],
 	"PARAMETERS" => [
 		"CATALOG_IBLOCK_ID" =>[
@@ -34,7 +34,7 @@ $arComponentParameters =[]
 			"PARENT" => "CACHE_SETTINGS",
 			"NAME" => "yip cashirovaniya",
 			"TYPE" => "LIST",
-			"VALUES" => ["A"=> avto, "Y" => cashirovat, "N"=> "ne cashirovat"],
+			"VALUES" => ["A"=> "avto", "Y" =>" cashirovat", "N"=> "ne cashirovat"],
 			"DEFAULT" => "A",
 		],
 	],

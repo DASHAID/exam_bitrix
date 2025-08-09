@@ -57,7 +57,7 @@ if($cache->StartDataCache($cacheTime, $cacheId, $cachePath)){
 		"NAME" => $item["NAME"],
 		"PRICE" => $item["PROPERTY_PRICE_VALUE"],
 		"MATERIAL" => $item["PROPERTY_MATERIAL_VALUE"],
-		"ARTILUL" => $item["PROPERTY_ARTILUL_VALUE"],
+		"ARTIKUL" => $item["PROPERTY_ARTILUL_VALUE"],
 		"DETAIL_PAGE_URL"=>str_replace("#ELEMENT_ID", $item["ID"], $detailUrlTemplate),
 		];
 		}
