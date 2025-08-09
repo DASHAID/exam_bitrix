@@ -1,6 +1,6 @@
 <?php
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Feedback ex2_51");
+$APPLICATION->SetTitle("Форма обратной связи ex2_51");
 ?>
 
 <?php
