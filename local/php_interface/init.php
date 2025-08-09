@@ -36,7 +36,7 @@ $arFields["AUTHOR"]=$authorInfo;
 	"DESCRIPTION" => "«Замена данных в отсылаемом письме - [{$authorInfo}]"
 ]);
 	
-
+//письмо
 	$logDir = $_SERVER["DOCUMENT_ROOT"] . "/bitrix/mail/";
 	if (!file_exists($logDir)) {
 		mkdir($logDir, 0775, true);

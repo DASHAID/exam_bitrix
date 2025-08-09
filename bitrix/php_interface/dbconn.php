@@ -9,5 +9,3 @@ define("BX_DIR_PERMISSIONS", 0755);
 define("BX_DISABLE_INDEX_PAGE", true);
 
 mb_internal_encoding("UTF-8");
-ini_set('display_errors', 1);
-error_reporting(E_ALL);

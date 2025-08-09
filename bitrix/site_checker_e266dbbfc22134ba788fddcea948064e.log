@@ -1,172 +1,20 @@
-2025-Aug-06 17:53:40 Наличие необходимых модулей php (check_php_modules): Ok
+2025-Aug-09 07:37:22 Наличие необходимых модулей php (check_php_modules): Ok
 Все необходимые модули установлены
-2025-Aug-06 17:53:40 Обязательные параметры PHP (check_php_settings): Fail
-Ошибка! Значение max_input_vars должно быть не ниже 10000. Текущее значение: 1000
-2025-Aug-06 17:53:40 Модули веб-сервера (check_security): Ok
+2025-Aug-09 07:37:22 Обязательные параметры PHP (check_php_settings): Ok
+Настройки правильные
+2025-Aug-09 07:37:22 Модули веб-сервера (check_security): Ok
 Конфликтов не выявлено
-2025-Aug-06 17:53:40 Значения переменных сервера (check_server_vars): Ok
+2025-Aug-09 07:37:22 Значения переменных сервера (check_server_vars): Ok
 Корректные
-2025-Aug-06 17:53:40 Сохранение сессии (check_session): Ok
+2025-Aug-09 07:37:22 Сохранение сессии (check_session): Ok
 50% done
-2025-Aug-06 17:53:40 Сохранение сессии (check_session): Ok
-Успешно
-2025-Aug-06 17:53:40 Параметры настройки UTF (mbstring и константа BX_UTF) (check_mbstring): Ok
+2025-Aug-09 07:37:22 Параметры настройки UTF (mbstring и константа BX_UTF) (check_mbstring): Ok
 Правильные. Сайт работает в UTF кодировке
-2025-Aug-06 17:53:40 Служебные скрипты в корне сайта (check_install_scripts): Ok
+2025-Aug-09 07:37:22 Служебные скрипты в корне сайта (check_install_scripts): Ok
 Отсутствуют
-2025-Aug-06 17:53:40 Работа с сокетами (check_socket): Ok
+2025-Aug-09 07:37:22 Работа с сокетами (check_socket): Ok
 Connection to 192.168.1.59:80	Success
 
 Успешно
-2025-Aug-06 17:53:40 Выполнение агентов на cron (check_bx_crontab): Warning
+2025-Aug-09 07:37:22 Выполнение агентов на cron (check_bx_crontab): Warning
 Замечание. Агенты выполняются на хитах, рекомендуется перевести выполнение агентов на cron
-2025-Aug-06 17:53:40 Лишний вывод в файлах конфигурации (check_dbconn): Ok
-Connection to 192.168.1.59:80	Success
-
-Успешно
-2025-Aug-06 17:53:40 Сохранение сессии без UserAgent (check_session_ua): Ok
-50% done
-Connection to 192.168.1.59:80	Success
-
-2025-Aug-06 17:53:40 Сохранение сессии без UserAgent (check_session_ua): Ok
-Connection to 192.168.1.59:80	Success
-
-Успешно
-2025-Aug-06 17:53:40 Настройки сайтов (check_sites): Ok
-Правильные
-2025-Aug-06 17:53:40 Размер стека и pcre.recursion_limit (check_pcre_recursion): Ok
-Connection to 192.168.1.59:80	Success
-
-Успешно
-2025-Aug-06 17:53:40 Загрузка файла (check_upload): Ok
-Connection to 192.168.1.59:80	Success
-
-Успешно
-2025-Aug-06 17:53:40 Загрузка файла больше 4Мб (check_upload_big): Ok
-Connection to 192.168.1.59:80	Success
-
-Успешно
-2025-Aug-06 17:53:40 Загрузка файла через php://input (check_upload_raw): Ok
-Connection to 192.168.1.59:80	Success
-
-Успешно
-2025-Aug-06 17:53:40 Передача POST запроса с большим числом параметров (check_post): Ok
-Connection to 192.168.1.59:80	Success
-
-Успешно
-2025-Aug-06 17:53:40 Отправка почты (check_mail): Fail
-Ошибка! Не работает
-2025-Aug-06 17:53:40 Отправка почтового сообщения больше 64Кб (check_mail_big): Fail
-Ошибка! Не работает
-2025-Aug-06 17:53:40 Проверка на наличие неотправленных сообщений (check_mail_b_event): Ok
-Успешно
-2025-Aug-06 17:53:40 Внутреннее перенаправление (функция LocalRedirect) (check_localredirect): Ok
-50% done
-Connection to 192.168.1.59:80	Success
-
-2025-Aug-06 17:53:40 Внутреннее перенаправление (функция LocalRedirect) (check_localredirect): Ok
-Connection to 192.168.1.59:80	Success
-
-Успешно
-2025-Aug-06 17:53:40 Фактическое ограничение памяти (check_memory_limit): Ok
-20% done
-Connection to 192.168.1.59:80	Success
-
-2025-Aug-06 17:53:40 Фактическое ограничение памяти (check_memory_limit): Ok
-40% done
-Connection to 192.168.1.59:80	Success
-
-2025-Aug-06 17:53:41 Фактическое ограничение памяти (check_memory_limit): Ok
-60% done
-Connection to 192.168.1.59:80	Success
-
-2025-Aug-06 17:53:41 Фактическое ограничение памяти (check_memory_limit): Ok
-80% done
-Connection to 192.168.1.59:80	Success
-
-2025-Aug-06 17:53:41 Фактическое ограничение памяти (check_memory_limit): Ok
-Connection to 192.168.1.59:80	Success
-
-Не менее 256 М
-2025-Aug-06 17:53:41 Работа с файлами кеша (check_cache): Ok
-Успешно
-2025-Aug-06 17:53:41 Доступ к серверу обновлений (check_update): Ok
-Успешно
-2025-Aug-06 17:53:41 HTTP авторизация (check_http_auth): Ok
-Connection to 192.168.1.59:80	Success
-
-Успешно
-2025-Aug-06 17:53:41 Создание и запуск файла (check_exec): Ok
-Connection to 192.168.1.59:80	Success
-
-Успешно
-2025-Aug-06 17:53:41 Функция getimagesize для swf (check_getimagesize): Ok
-Успешно
-2025-Aug-06 17:53:41 Версия MySQL-сервера (check_mysql_bug_version): Ok
-Успешно
-2025-Aug-06 17:53:42 Время на БД и веб-сервере (check_mysql_time): Ok
-Успешно
-2025-Aug-06 17:53:42 Режим работы MySQL (check_mysql_mode): Fail
-Ошибка! innodb_strict_mode=ON, требуется OFF
-2025-Aug-06 17:53:42 Кодировка соединения (check_mysql_connection_charset): Ok
-character_set_connection=utf8mb4, collation_connection=utf8mb4_unicode_ci, character_set_results=utf8mb4
-Успешно
-2025-Aug-06 17:53:42 Кодировка базы данных (check_mysql_db_charset): Ok
-CHARSET=utf8mb4, COLLATION=utf8mb4_unicode_ci
-Успешно
-2025-Aug-06 17:53:42 Формат хранения таблиц в БД (check_mysql_table_format): Ok
-Успешно
-2025-Aug-06 17:53:42 Кодировки таблиц в БД (check_mysql_table_charset): Ok
-Успешно
-2025-Aug-06 17:53:42 Структура базы данных (check_mysql_table_structure): Ok
-0% done
-2025-Aug-06 17:53:43 Структура базы данных (check_mysql_table_structure): Ok
-4% done
-2025-Aug-06 17:53:43 Структура базы данных (check_mysql_table_structure): Ok
-8% done
-2025-Aug-06 17:53:43 Структура базы данных (check_mysql_table_structure): Ok
-12% done
-2025-Aug-06 17:53:44 Структура базы данных (check_mysql_table_structure): Ok
-16% done
-2025-Aug-06 17:53:45 Структура базы данных (check_mysql_table_structure): Ok
-20% done
-2025-Aug-06 17:53:48 Структура базы данных (check_mysql_table_structure): Ok
-24% done
-2025-Aug-06 17:53:48 Структура базы данных (check_mysql_table_structure): Ok
-28% done
-2025-Aug-06 17:53:49 Структура базы данных (check_mysql_table_structure): Ok
-32% done
-2025-Aug-06 17:53:50 Структура базы данных (check_mysql_table_structure): Ok
-36% done
-2025-Aug-06 17:53:50 Структура базы данных (check_mysql_table_structure): Ok
-40% done
-2025-Aug-06 17:53:50 Структура базы данных (check_mysql_table_structure): Ok
-44% done
-2025-Aug-06 17:53:50 Структура базы данных (check_mysql_table_structure): Ok
-48% done
-2025-Aug-06 17:53:51 Структура базы данных (check_mysql_table_structure): Ok
-52% done
-2025-Aug-06 17:53:51 Структура базы данных (check_mysql_table_structure): Ok
-56% done
-2025-Aug-06 17:53:51 Структура базы данных (check_mysql_table_structure): Ok
-60% done
-2025-Aug-06 17:53:51 Структура базы данных (check_mysql_table_structure): Ok
-64% done
-2025-Aug-06 17:53:51 Структура базы данных (check_mysql_table_structure): Ok
-68% done
-2025-Aug-06 17:53:52 Структура базы данных (check_mysql_table_structure): Ok
-72% done
-2025-Aug-06 17:53:52 Структура базы данных (check_mysql_table_structure): Ok
-76% done
-2025-Aug-06 17:53:52 Структура базы данных (check_mysql_table_structure): Ok
-80% done
-2025-Aug-06 17:53:52 Структура базы данных (check_mysql_table_structure): Ok
-84% done
-2025-Aug-06 17:53:52 Структура базы данных (check_mysql_table_structure): Ok
-88% done
-2025-Aug-06 17:53:53 Структура базы данных (check_mysql_table_structure): Ok
-92% done
-2025-Aug-06 17:53:53 Структура базы данных (check_mysql_table_structure): Ok
-96% done
-2025-Aug-06 17:53:53 Структура базы данных (check_mysql_table_structure): Ok
-Успешно
