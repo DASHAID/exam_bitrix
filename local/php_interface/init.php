@@ -22,9 +22,10 @@ if($USER->IsAuthorized()){
 	$userId=$USER->GetID();
 	$login=$USER->GetLogin();
 	$fullName=$USER->GetFullName();
-	$authorInfo="Pol'zovatel authorized {$userId} ({$login}) {$fullName}, data from form {$formName}";
+	$authorInfo="«Пользователь авторизован: {$userId} ({$login}) {$fullName}, из формы: {$formName}";
 } else {
-	$authorInfo="NOT AUTHORIZED {$formName}";
+	$authorInfo="«Пользователь не авторизован, данные из
+формы: {$formName}";
 	}
 $arFields["AUTHOR"]=$authorInfo;
 \CEventLog::Add([
@@ -32,6 +33,19 @@ $arFields["AUTHOR"]=$authorInfo;
 	"AUDIT_TYPE_ID"=>"FEEDBACK_FORM_AUTHOR_REPLACED",
 	"MODULE_ID"=>"main",
 	"ITEM_ID"=> "feedback_form",
-	"DESCRIPTION" => "zamena data - [{$authorInfo}]"
+	"DESCRIPTION" => "«Замена данных в отсылаемом письме - [{$authorInfo}]"
 ]);
+	
+
+	$logDir = $_SERVER["DOCUMENT_ROOT"] . "/bitrix/mail/";
+	if (!file_exists($logDir)) {
+		mkdir($logDir, 0775, true);
+	}
+
+	$filename = $logDir . "feedback_" . date("Ymd_His") . "_" . rand(1000,9999) . ".txt";
+	$content = "To: " . $arFields["EMAIL_TO"] . "\n";
+	$content .= "Subject: " . $arTemplate["SUBJECT"] . "\n";
+	$content .= "Message:\n" . $arTemplate["MESSAGE"] . "\n";
+
+	file_put_contents($filename, $content);
 }

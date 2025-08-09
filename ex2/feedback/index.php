@@ -8,8 +8,8 @@ $APPLICATION->IncludeComponent("bitrix:main.feedback",
 				"",
 [
 	"EMAIL_TO" => "admin@example.com",
-	"EVENT_MESSAGE_ID" => ["FEEDBACK_FORM"],
-	"OK_TEXT" => "Thank you, message send",
+	"EVENT_MESSAGE_ID" => [7],
+	"OK_TEXT" => "Сообщение отправлено!",
 	"REQUIRED_FIELDS" => ["NAME", "EMAIL", "MESSAGE"],
 	"USE_CAPTCHA" => "Y"
 ]

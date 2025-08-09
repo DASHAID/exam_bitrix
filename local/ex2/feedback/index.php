@@ -1,6 +1,6 @@
 <?php
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
-$APPLICATION->SetTitle("Feedback ex2_51");
+$APPLICATION->SetTitle("Форма обратной связи ex2_51");
 ?>
 
 <?$APPLICATION->IncludeComponent("bitrix:main.feedback",
@@ -8,7 +8,7 @@ $APPLICATION->SetTitle("Feedback ex2_51");
 [
 	"EMAIL_TO" => "admin@example.com",
 	"EVENT_MESSAGE_ID" => ["FEEDBACK_FORM"],
-	"OK_TEXT" => "Thank you, message send",
+	"OK_TEXT" => "Сообщение отправлено",
 	"REQUIRED_FIELDS" => ["NAME", "EMAIL", "MESSAGE"],
 	"USE_CAPTCHA" => "Y",
 ]
