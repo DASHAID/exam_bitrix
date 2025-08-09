@@ -1,1 +1,0 @@
-<?php $filesInfo = ["/bitrix/components/bitrix/main.feedback/templates/.default/style.css" => "1754724005251",]; ?>

@@ -7,6 +7,39 @@ IncludeTemplateLangFile(__FILE__);
 <head>
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<?
+use Bitrix\Main\Loader;
+use Bitrix\Iblock\ElementTable;
+
+Loader::includeModule('iblock');
+
+global $APPLICATION;
+$currentUrl=$APPLICATION->GetCurPage(false);
+
+$metatagTitle='';
+$metatagDescription='';
+$iblockCode='meta_tags';
+$iblockType='products';
+
+$iblock=CIBlock::GetList([], ['CODE'=>$iblockCode, 'TYPE' =>$iblockType])->Fetch();
+if ($iblock){
+	$iblockId = $iblock['ID'];
+	$res = CIBlockElement::GetList([],[
+	'IBLOCK_ID'=>$iblockId,
+	'NAME' => $currentUrl], false, false, ['ID', 'PROPERTY_title', 'PROPERTY_description']);
+	if($el=$res->GetNext()){
+	$metatagTitle = $el['PROPERTY_TITLE_VALUE'];
+	$metatagDescription=$el['PROPERTY_DESCRIPTION_VALUE'];
+	}
+}
+if ($metatagTtitle){
+$APPLICATION ->SetPageProperty('title', $metatagTitle);
+}
+if($metatagDescription){
+$APPLICATION->SetPageProperty('description', $metatagDescription);
+}
+
+?>
 <?$APPLICATION->ShowHead();?>
 <link href="<?=SITE_TEMPLATE_PATH?>/common.css" type="text/css" rel="stylesheet" />
 <link href="<?=SITE_TEMPLATE_PATH?>/colors.css" type="text/css" rel="stylesheet" />
