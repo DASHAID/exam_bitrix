@@ -1,10 +1,10 @@
 <?php
 if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true) die();
 $arComponentDescription=[
-	"NAME"=>"prostoy component",
-	"DESCRIPTION" => "COMPONENT dly examena",
+	"NAME"=>"Простой компонент",
+	"DESCRIPTION" => "Компонент для ex2_71",
 	"PATH" =>[
 		"ID" => "simplecomp",
-		"NAME" = "Prostoy components"
+		"NAME" = "Простой компонент"
 	],
 ];
