@@ -1,6 +1,6 @@
 <?php
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Prostpy component");
+$APPLICATION->SetTitle("Простой компонент");
 
 $APPLICATION->IncludeComponent(
 	"simplecomp.exam",
