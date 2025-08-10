@@ -70,5 +70,5 @@ if($cache->StartDataCache($cacheTime, $cacheId, $cachePath)){
 		$arResult = $cache->GetVars();
 	}
 
-$APPLICATION ->SetTitle("Razdelov" . $arResult["CLASSIFIERS_COUNT"]);
+$APPLICATION ->SetTitle("Разделов: " . $arResult["CLASSIFIERS_COUNT"]);
 $this -> IncludeComponentTemplate();
