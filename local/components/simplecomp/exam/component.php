@@ -1,9 +1,7 @@
 <?php
-if(!defined("B_PROLOG_INCLUDED")|| B_PROLOG_INCLUDED !==true) die();
-
 use Bitrix\Main\Loader;
-Loader::includeModule("iblock");
 
+\CModule::IncludeModule("iblock"));
 global $USER, $APPLICATION;
 
 $arParams["CATALOG_IBLOCK_ID"]=intval($arParams["CATALOG_IBLOCK_ID"]);
@@ -57,7 +55,7 @@ if($cache->StartDataCache($cacheTime, $cacheId, $cachePath)){
 		"NAME" => $item["NAME"],
 		"PRICE" => $item["PROPERTY_PRICE_VALUE"],
 		"MATERIAL" => $item["PROPERTY_MATERIAL_VALUE"],
-		"ARTIKUL" => $item["PROPERTY_ARTILUL_VALUE"],
+		"ARTIKUL" => $item["PROPERTY_ARTIKUL_VALUE"],
 		"DETAIL_PAGE_URL"=>str_replace("#ELEMENT_ID", $item["ID"], $detailUrlTemplate),
 		];
 		}
